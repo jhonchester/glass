@@ -254,14 +254,17 @@
 
     .about-image-stage {
       position: relative;
-      min-height: clamp(34rem, 56vw, 46rem);
+      min-height: clamp(38rem, 58vw, 48rem);
       display: flex;
-      align-items: end;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(1.4rem, 3vw, 2.25rem);
       padding: clamp(1.25rem, 3vw, 2.5rem);
       color: #fff8e8;
       background:
-        linear-gradient(180deg, rgba(13, 9, 6, .18), rgba(13, 9, 6, .76)),
-        linear-gradient(90deg, rgba(13, 9, 6, .9), rgba(13, 9, 6, .34) 54%, rgba(13, 9, 6, .82)),
+        linear-gradient(180deg, rgba(13, 9, 6, .54), rgba(13, 9, 6, .84)),
+        radial-gradient(circle at 50% 16%, rgba(248, 216, 148, .18), transparent 18rem),
+        linear-gradient(90deg, rgba(13, 9, 6, .86), rgba(13, 9, 6, .36) 54%, rgba(13, 9, 6, .86)),
         url('https://unsplash.com/photos/z2aiZnK_6zg/download?force=true&w=1600');
       background-size: cover;
       background-position: center;
@@ -286,8 +289,8 @@
       content: "VITRVM";
       position: absolute;
       right: clamp(.75rem, 3vw, 3rem);
-      top: clamp(2rem, 7vw, 4.5rem);
-      color: rgba(255, 244, 199, .14);
+      bottom: clamp(1.2rem, 4vw, 2.5rem);
+      color: rgba(255, 244, 199, .1);
       font: 700 clamp(3.8rem, 11vw, 9rem)/.8 'Cinzel', serif;
       letter-spacing: .08em;
       pointer-events: none;
@@ -297,7 +300,8 @@
     .about-image-content {
       position: relative;
       z-index: 3;
-      width: 100%;
+      width: min(100%, 880px);
+      margin-inline: auto;
       padding: clamp(1.25rem, 3vw, 2.35rem);
       border: 1px solid rgba(255, 232, 168, .26);
       border-radius: 1.1rem;
@@ -308,11 +312,13 @@
       backdrop-filter: blur(14px);
     }
 
-    .about-content-grid {
-      display: grid;
-      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-      gap: clamp(1.25rem, 3vw, 2.5rem);
-      align-items: end;
+    .about-image-heading {
+      position: relative;
+      z-index: 3;
+      max-width: 780px;
+      margin-inline: auto;
+      text-align: center;
+      text-shadow: 0 16px 42px rgba(0, 0, 0, .46);
     }
 
     .about-image-content .roman-divider {
@@ -324,8 +330,9 @@
     }
 
     .about-copy {
-      padding-left: clamp(0rem, 2vw, 1.5rem);
-      border-left: 1px solid rgba(255, 232, 168, .22);
+      max-width: 720px;
+      margin-inline: auto;
+      text-align: center;
     }
 
     .about-craft-points {
@@ -337,10 +344,11 @@
 
     .about-craft-points span {
       display: block;
-      padding: .8rem .9rem;
+      padding: .85rem .95rem;
       color: #fff8e8;
-      background: rgba(255, 255, 255, .09);
-      border: 1px solid rgba(255, 232, 168, .2);
+      text-align: center;
+      background: rgba(255, 255, 255, .11);
+      border: 1px solid rgba(255, 232, 168, .24);
       border-radius: .85rem;
       font-weight: 700;
     }
@@ -809,6 +817,61 @@
       backdrop-filter: blur(10px);
     }
 
+    .info-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(120deg, rgba(13, 9, 6, .92), rgba(69, 33, 28, .68), rgba(13, 9, 6, .88)),
+        url('https://unsplash.com/photos/KUx4NMpjW2w/download?force=true&w=1800');
+      background-size: cover;
+      background-position: center;
+      isolation: isolate;
+    }
+
+    .info-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(255, 232, 168, .07) 0 1px, transparent 1px 4.5rem),
+        repeating-linear-gradient(0deg, rgba(255, 232, 168, .05) 0 1px, transparent 1px 4.5rem),
+        linear-gradient(180deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .46));
+      z-index: 0;
+    }
+
+    .info-section > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-card {
+      color: #fff8e8;
+      background:
+        linear-gradient(135deg, rgba(21, 16, 11, .88), rgba(74, 35, 30, .7)),
+        radial-gradient(circle at 0 0, rgba(72, 153, 187, .16), transparent 13rem);
+      border: 1px solid rgba(255, 232, 168, .28);
+      box-shadow: 0 24px 76px rgba(0, 0, 0, .32);
+      backdrop-filter: blur(12px);
+    }
+
+    .info-card h2,
+    .info-card strong {
+      color: #fff8e8;
+    }
+
+    .info-card .info-label {
+      color: #f8d894;
+    }
+
+    .info-card .info-item {
+      border-bottom-color: rgba(255, 232, 168, .18);
+    }
+
+    .info-card .btn-outline-warning {
+      color: #fff8e8 !important;
+      border-color: rgba(255, 232, 168, .45);
+    }
+
     .roman-divider {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
@@ -1202,6 +1265,211 @@
 
     .timeline-section > .container > .text-center .text-secondary {
       color: rgba(255, 255, 255, .76) !important;
+    }
+
+    .story-scroll {
+      position: relative;
+      color: #fff8e8;
+      background:
+        linear-gradient(180deg, rgba(7, 5, 4, .92), rgba(34, 18, 15, .86), rgba(7, 5, 4, .94)),
+        url('https://unsplash.com/photos/Wb0YJsKFAw4/download?force=true&w=1900');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      isolation: isolate;
+    }
+
+    .story-scroll::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(200, 169, 106, .07) 0 1px, transparent 1px 5rem),
+        repeating-linear-gradient(0deg, rgba(200, 169, 106, .045) 0 1px, transparent 1px 5rem),
+        radial-gradient(circle at 18% 18%, rgba(200, 169, 106, .22), transparent 19rem),
+        radial-gradient(circle at 78% 24%, rgba(95, 146, 172, .16), transparent 20rem),
+        linear-gradient(180deg, rgba(0, 0, 0, .15), rgba(0, 0, 0, .5));
+      z-index: 0;
+    }
+
+    .story-scroll > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-eyebrow {
+      color: #c8a96a;
+      letter-spacing: .24em;
+    }
+
+    .story-mile {
+      min-height: min(82vh, 46rem);
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(0, 1fr);
+      gap: clamp(1.25rem, 4vw, 4rem);
+      align-items: center;
+      padding-block: clamp(2rem, 6vw, 5rem);
+      opacity: .18;
+      transform: translateY(4rem) scale(.94);
+      transition: opacity .85s ease, transform .85s ease, filter .85s ease;
+      filter: blur(2px) saturate(.78);
+    }
+
+    .story-mile:nth-child(even) {
+      grid-template-columns: minmax(0, 1fr) minmax(0, .78fr);
+    }
+
+    .story-mile:nth-child(even) .story-year-wrap {
+      order: 2;
+      text-align: right;
+    }
+
+    .story-mile.active {
+      opacity: 1 !important;
+      transform: translateY(0) scale(1);
+      filter: blur(0) saturate(1.08);
+    }
+
+    .story-mile:nth-child(even).active {
+      opacity: 1 !important;
+      filter: blur(0) saturate(1.08);
+    }
+
+    .story-year {
+      color: rgba(255, 248, 232, .08);
+      font: 700 clamp(5rem, 13vw, 12rem)/.82 'Cinzel', serif;
+      letter-spacing: .04em;
+      text-shadow: 0 0 54px rgba(200, 169, 106, .12);
+    }
+
+    .story-mile.active .story-year {
+      color: rgba(200, 169, 106, .22);
+    }
+
+    .story-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(1.35rem, 3vw, 2.25rem);
+      border: 1px solid rgba(200, 169, 106, .28);
+      border-radius: 1.25rem;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .045)),
+        radial-gradient(circle at 0 0, rgba(200, 169, 106, .16), transparent 13rem);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, .34);
+      backdrop-filter: blur(18px);
+      transform: translateY(1.25rem);
+      transition: transform .85s ease, box-shadow .85s ease, border-color .85s ease;
+    }
+
+    .story-mile.active .story-card {
+      transform: translateY(0);
+      border-color: rgba(200, 169, 106, .48);
+      box-shadow: 0 34px 110px rgba(0, 0, 0, .44), 0 0 44px rgba(200, 169, 106, .14);
+    }
+
+    .story-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #c8a96a, #fff1b8, transparent);
+      opacity: .72;
+    }
+
+    .story-symbol {
+      width: 3.4rem;
+      height: 3.4rem;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.2rem;
+      color: #27190d;
+      background: radial-gradient(circle at 32% 25%, #fff4c7, #c8a96a 72%);
+      border: 1px solid rgba(255, 255, 255, .42);
+      border-radius: 999px;
+      box-shadow: 0 18px 44px rgba(200, 169, 106, .24);
+    }
+
+    .story-symbol svg {
+      width: 1.55rem;
+      height: 1.55rem;
+    }
+
+    .story-client {
+      color: #f0d99b;
+      font-weight: 700;
+    }
+
+    .story-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.25rem;
+    }
+
+    .story-tags span {
+      padding: .42rem .7rem;
+      color: rgba(255, 248, 232, .9);
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(200, 169, 106, .22);
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    @media (max-width: 991px) {
+      .story-scroll {
+        background-attachment: scroll;
+      }
+
+      .story-mile,
+      .story-mile:nth-child(even) {
+        min-height: 76vh;
+        grid-template-columns: 1fr;
+        gap: .75rem;
+        align-content: center;
+        padding-block: 2.25rem;
+        opacity: .18;
+        transform: translateY(2.5rem) scale(.95);
+      }
+
+      .story-mile:nth-child(even) .story-year-wrap {
+        order: 0;
+        text-align: left;
+      }
+
+      .story-year {
+        font-size: clamp(3.3rem, 17vw, 5.8rem);
+        line-height: .9;
+        overflow-wrap: anywhere;
+      }
+
+      .story-card {
+        border-radius: 1rem;
+        padding: 1.1rem;
+      }
+
+      .story-card .display-6 {
+        font-size: clamp(1.8rem, 9vw, 2.45rem);
+      }
+
+      .story-card .fs-5 {
+        font-size: 1rem !important;
+      }
+
+      .story-symbol {
+        width: 2.85rem;
+        height: 2.85rem;
+        margin-bottom: .95rem;
+      }
+
+      .story-tags {
+        gap: .4rem;
+      }
+
+      .story-tags span {
+        font-size: .7rem;
+        padding: .34rem .55rem;
+      }
     }
 
     .success-section {
@@ -1648,17 +1916,6 @@
         margin-top: auto;
       }
 
-      .about-content-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-copy {
-        padding-left: 0;
-        border-left: 0;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(255, 232, 168, .22);
-      }
-
       .about-craft-points {
         grid-template-columns: 1fr;
       }
@@ -1676,7 +1933,7 @@
       border-radius: 1.2rem;
       background:
         linear-gradient(180deg, rgba(21, 14, 9, .16), rgba(21, 14, 9, .86)),
-        url('https://unsplash.com/photos/RCQCHONXIoo/download?force=true&w=900');
+        url('stained/download.jpg');
       background-size: cover;
       background-position: center;
       box-shadow: 0 24px 70px rgba(35, 28, 20, .18);
@@ -2092,7 +2349,7 @@
       <div class="row align-items-center g-4 pt-2">
         <div class="col-lg-6 reveal">
           <p class="font-display text-warning mb-3 tracking-[.26em] text-uppercase text-sm">Rome church art, engineered as glass</p>
-          <h1 class="font-display text-white display-3 fw-bold lh-1 mb-4">Sacred Roman Art, Manufactured in Glass.</h1>
+          <h1 class="font-display text-white display-3 fw-bold lh-1 mb-4">Roman-Inspired Sacred Art, Crafted in Glass</h1>
           <p class="text-white-50 fs-5 mb-4 max-w-2xl">We create arched glass windows inspired by basilicas, stained-glass saints, fresco ceilings, marble chapels, mosaic floors, and the warm candlelit glow of old Rome.</p>
           <div class="d-flex flex-column flex-sm-row gap-3">
             <a href="#contact" class="btn btn-warning rounded-pill px-5 py-3 fw-bold text-dark shadow-glow">Get a Quote</a>
@@ -2130,12 +2387,12 @@
 
   <main>
     <!-- Basic Information -->
-    <section id="info" class="py-5">
+    <section id="info" class="info-section py-5">
       <div class="container py-5">
         <div class="row g-4 align-items-stretch">
           <div class="col-lg-6 reveal">
-            <div class="section-shell rounded-4 p-4 p-lg-5 h-100">
-              <p class="font-display text-bronze tracking-[.22em] text-uppercase text-sm mb-3">Basic information</p>
+            <div class="info-card rounded-4 p-4 p-lg-5 h-100">
+              <p class="font-display text-warning tracking-[.22em] text-uppercase text-sm mb-3">Basic information</p>
               <h2 class="font-display display-6 fw-bold mb-4">Joseph Stainedglass Aluminum Fabrication and Iron Works</h2>
               <div class="info-item">
                 <span class="info-label">Business Name</span>
@@ -2276,148 +2533,104 @@
       </div>
     </section>
 
-    <!-- Roman Road Timeline -->
-    <section id="timeline" class="timeline-section py-5">
+    <!-- Scroll Story Timeline -->
+    <section id="timeline" class="story-scroll py-5">
       <div class="container py-5">
-        <div class="text-center mx-auto mb-5 reveal" style="max-width: 780px;">
-          <p class="font-display text-bronze tracking-[.22em] text-uppercase text-sm mb-3">Church client timeline</p>
-          <h2 class="font-display display-5 fw-bold mb-3">Long-term sacred glass commissions recorded like a Roman civic archive.</h2>
-          <p class="text-secondary fs-5 mb-0">A history of church relationships, cathedral work, and parish projects that continue from the first commissions to the present year.</p>
+        <div class="text-center mx-auto mb-5 reveal" style="max-width: 860px;">
+          <p class="font-display story-eyebrow text-uppercase text-sm mb-3">Scroll story timeline</p>
+          <h2 class="font-display display-4 fw-bold mb-3">Seven sacred milestones, revealed through light and glass.</h2>
+          <p class="fs-5 text-white-50 mb-0">A cinematic record of commissions, long-distance service, and church relationships shaped by Joseph Stainedglass Aluminum Fabrication and Iron Works.</p>
         </div>
-        <div class="section-shell rounded-4 p-4 p-lg-5 reveal">
-          <div class="row g-4 align-items-stretch">
-            <div class="col-lg-5">
-              <aside class="campaign-visual h-100">
-                <div class="campaign-visual-content">
-                  <div class="standard-mark">AV</div>
-                  <p class="font-display text-warning tracking-[.22em] text-uppercase text-sm mb-2">Sacred commission ledger</p>
-                  <h3 class="font-display h3 fw-bold mb-3">From 2013 founding to long-term parish trust.</h3>
-                  <p class="text-white-50 mb-0">The timeline is styled like a Roman record stone: each mark names a client, parish, province, and the stained-glass relationship built through continuing service.</p>
-                </div>
-              </aside>
-            </div>
-            <div class="col-lg-7">
-              <div class="timeline">
-                <div class="timeline-item">
-                  <span class="timeline-year">2013</span>
-                  <div>
-                    <span class="timeline-campaign">Mile I - Foundation</span>
-                    <strong>Business started</strong>
-                    <p class="text-secondary mb-0">Joseph Stainedglass Aluminum Fabrication and Iron Works began as a home-based stained-glass, aluminum fabrication, and iron works business.</p>
-                    <div class="timeline-symbol">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V10a8 8 0 0 1 16 0v11"/><path d="M4 14h16"/><path d="M12 2v19"/></svg>
-                      <span>Symbol: Workshop arch for the first cutting table and custom stained-glass patterns.</span>
-                    </div>
-                    <div class="timeline-glass">
-                      <span>Business founded</span>
-                      <span>Home workshop</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-year">2013</span>
-                  <div>
-                    <span class="timeline-campaign">Mile II - First Cathedral Client</span>
-                    <strong>Bishop Eduardo Huanich, St. Joseph Taytay Palawan Cathedral</strong>
-                    <p class="text-secondary mb-0">First major client relationship, beginning in 2013 and continuing until the present year.</p>
-                    <div class="timeline-symbol">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/><path d="M12 5v14M5 12h14M7 7l10 10M17 7 7 17"/></svg>
-                      <span>Symbol: Cathedral rose medallion for the first sacred stained-glass commission.</span>
-                    </div>
-                    <div class="timeline-glass">
-                      <span>First client</span>
-                      <span>2013-present</span>
-                      <span>Cathedral work</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-year">2014</span>
-                  <div>
-                    <span class="timeline-campaign">Mile III - Long-term Parish Client</span>
-                    <strong>Rev. Fr. Roel Mendoza, San Isidro Labrador Parish, Masbate</strong>
-                    <p class="text-secondary mb-0">First project began in 2014 and continues until the present year, showing steady trust in church glass fabrication and installation.</p>
-                    <div class="timeline-symbol">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
-                      <span>Symbol: Shield mark for long-term project care and protected sacred glass delivery.</span>
-                    </div>
-                    <div class="timeline-glass">
-                      <span>Masbate</span>
-                      <span>2014-present</span>
-                      <span>Parish client</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-year">2016</span>
-                  <div>
-                    <span class="timeline-campaign">Mile IV - Mindanao Commission</span>
-                    <strong>Rev. Fr. Jude Duncombe, Padre Pio Parish, Cabatangan, Zamboanga</strong>
-                    <p class="text-secondary mb-0">First project began in 2016 and continues until the present year, extending the business's sacred glass service to distant provinces.</p>
-                    <div class="timeline-symbol">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5"/><path d="M4 5c4-2 8 2 12 0v9c-4 2-8-2-12 0"/><path d="M17 19h3"/><path d="M17 14v5"/></svg>
-                      <span>Symbol: Roman standard for long-distance delivery and owner-supervised installation.</span>
-                    </div>
-                    <div class="timeline-glass">
-                      <span>Zamboanga</span>
-                      <span>2016-present</span>
-                      <span>Long-distance install</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-year">2018</span>
-                  <div>
-                    <span class="timeline-campaign">Mile V - Parish Expansion</span>
-                    <strong>Rev. Fr. Garry Bacolod, St. Bernard Parish, Mandaon Masbate</strong>
-                    <p class="text-secondary mb-0">First project began in 2018 and continues until the present year, adding another Masbate parish relationship to the stained-glass archive.</p>
-                    <div class="timeline-symbol">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-7h6v7"/></svg>
-                      <span>Symbol: Parish facade for church windows, grilles, and sacred glass installation.</span>
-                    </div>
-                    <div class="timeline-glass">
-                      <span>Mandaon Masbate</span>
-                      <span>2018-present</span>
-                      <span>Parish work</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-year">2020</span>
-                  <div>
-                    <span class="timeline-campaign">Mile VI - Continuing Masbate Work</span>
-                    <strong>Rev. Fr. Bibol Bidibil, Immaculate Conception, Balod Masbate</strong>
-                    <p class="text-secondary mb-0">First project began in 2020 and continues until the present year, supporting sacred glass work for Balod Masbate.</p>
-                    <div class="timeline-symbol">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/><path d="m4 4 16 16M20 4 4 20"/></svg>
-                      <span>Symbol: Mosaic grid for stained-glass panels, cut glass, and metal framing.</span>
-                    </div>
-                    <div class="timeline-glass">
-                      <span>Balod Masbate</span>
-                      <span>2020-present</span>
-                      <span>Stained glass</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-year">Now</span>
-                  <div>
-                    <span class="timeline-campaign">Mile VII - Long-term Clients</span>
-                    <strong>Churches, priests, and private clients across provinces</strong>
-                    <p class="text-secondary mb-0">The business continues serving long-term clients, including Rev. Fr. Bibol Bidibel in Balod Masbate, alongside church and private stained-glass projects.</p>
-                    <div class="timeline-symbol">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20"/><path d="M4.93 4.93 19.07 19.07"/><path d="M2 12h20"/><path d="M4.93 19.07 19.07 4.93"/><circle cx="12" cy="12" r="4"/></svg>
-                      <span>Symbol: Light wheel for continuing sacred glass service and repeat commissions.</span>
-                    </div>
-                    <div class="timeline-glass">
-                      <span>Long-term clients</span>
-                      <span>Repeat projects</span>
-                      <span>Church glass</span>
-                    </div>
-                  </div>
-                </div>
+
+        <div class="mx-auto" style="max-width: 1120px;">
+            <article class="story-mile" data-mile="1">
+              <div class="story-year-wrap"><div class="story-year">2013 - I</div></div>
+              <div class="story-card">
+                <span class="story-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V10a8 8 0 0 1 16 0v11"/><path d="M4 14h16"/><path d="M12 2v19"/></svg></span>
+                <p class="story-eyebrow font-display text-uppercase text-sm mb-2">Mile I - 2013</p>
+                <h3 class="font-display display-6 fw-bold mb-3">Foundation Business started</h3>
+                <p class="text-white-50 fs-5 mb-3">Joseph Stainedglass Aluminum Fabrication and Iron Works began as a home-based stained-glass, aluminum fabrication, and iron works business.</p>
+                <p class="story-client mb-0">Workshop arch for first cutting table and stained-glass patterns.</p>
+                <div class="story-tags"><span>Business founded</span><span>Home workshop</span><span>2013</span></div>
               </div>
-            </div>
+            </article>
+
+            <article class="story-mile" data-mile="2">
+              <div class="story-year-wrap"><div class="story-year">2013 - II</div></div>
+              <div class="story-card">
+                <span class="story-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="7"/><path d="M12 5v14M5 12h14M7 7l10 10M17 7 7 17"/></svg></span>
+                <p class="story-eyebrow font-display text-uppercase text-sm mb-2">Mile II - 2013</p>
+                <h3 class="font-display display-6 fw-bold mb-3">First Cathedral Client</h3>
+                <p class="story-client mb-3">Bishop Eduardo Huanich, St. Joseph Taytay Palawan Cathedral</p>
+                <p class="text-white-50 fs-5 mb-3">First major client relationship beginning in 2013 and continuing to present year.</p>
+                <p class="story-client mb-0">Symbol: Cathedral rose medallion.</p>
+                <div class="story-tags"><span>First client</span><span>Cathedral work</span><span>2013-present</span></div>
+              </div>
+            </article>
+
+            <article class="story-mile" data-mile="3">
+              <div class="story-year-wrap"><div class="story-year">2014</div></div>
+              <div class="story-card">
+                <span class="story-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg></span>
+                <p class="story-eyebrow font-display text-uppercase text-sm mb-2">Mile III - 2014</p>
+                <h3 class="font-display display-6 fw-bold mb-3">Long-term Parish Client</h3>
+                <p class="story-client mb-3">Rev. Fr. Roel Mendoza, San Isidro Labrador Parish, Masbate</p>
+                <p class="text-white-50 fs-5 mb-3">First project began in 2014 and continues to present, showing trust in church glass fabrication and installation.</p>
+                <p class="story-client mb-0">Symbol: Shield mark for protection and trust.</p>
+                <div class="story-tags"><span>Masbate</span><span>Parish client</span><span>2014-present</span></div>
+              </div>
+            </article>
+
+            <article class="story-mile" data-mile="4">
+              <div class="story-year-wrap"><div class="story-year">2016</div></div>
+              <div class="story-card">
+                <span class="story-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5"/><path d="M4 5c4-2 8 2 12 0v9c-4 2-8-2-12 0"/><path d="M17 19h3"/><path d="M17 14v5"/></svg></span>
+                <p class="story-eyebrow font-display text-uppercase text-sm mb-2">Mile IV - 2016</p>
+                <h3 class="font-display display-6 fw-bold mb-3">Mindanao Commission</h3>
+                <p class="story-client mb-3">Rev. Fr. Jude Duncombe, Padre Pio Parish, Cabatangan, Zamboanga</p>
+                <p class="text-white-50 fs-5 mb-3">First project began in 2016 and continues to present, extending sacred glass service to distant provinces.</p>
+                <p class="story-client mb-0">Symbol: Roman standard for long-distance service.</p>
+                <div class="story-tags"><span>Zamboanga</span><span>2016-present</span><span>Long-distance install</span></div>
+              </div>
+            </article>
+
+            <article class="story-mile" data-mile="5">
+              <div class="story-year-wrap"><div class="story-year">2018</div></div>
+              <div class="story-card">
+                <span class="story-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-7h6v7"/></svg></span>
+                <p class="story-eyebrow font-display text-uppercase text-sm mb-2">Mile V - 2018</p>
+                <h3 class="font-display display-6 fw-bold mb-3">Parish Expansion</h3>
+                <p class="story-client mb-3">Rev. Fr. Garry Bacolod, St. Bernard Parish, Mandaon Masbate</p>
+                <p class="text-white-50 fs-5 mb-3">First project began in 2018 and continues to present, expanding Masbate parish relationships.</p>
+                <p class="story-client mb-0">Symbol: Parish facade and church window frame.</p>
+                <div class="story-tags"><span>Mandaon Masbate</span><span>2018-present</span><span>Parish work</span></div>
+              </div>
+            </article>
+
+            <article class="story-mile" data-mile="6">
+              <div class="story-year-wrap"><div class="story-year">2020</div></div>
+              <div class="story-card">
+                <span class="story-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 12h16M12 4v16"/><path d="m4 4 16 16M20 4 4 20"/></svg></span>
+                <p class="story-eyebrow font-display text-uppercase text-sm mb-2">Mile VI - 2020</p>
+                <h3 class="font-display display-6 fw-bold mb-3">Continuing Masbate Work</h3>
+                <p class="story-client mb-3">Rev. Fr. Bibol Bidibil, Immaculate Conception, Balod Masbate</p>
+                <p class="text-white-50 fs-5 mb-3">First project began in 2020 and continues to present, supporting sacred glass work in Balod Masbate.</p>
+                <p class="story-client mb-0">Symbol: Mosaic grid stained glass panels.</p>
+                <div class="story-tags"><span>Balod Masbate</span><span>2020-present</span><span>Stained glass</span></div>
+              </div>
+            </article>
+
+            <article class="story-mile" data-mile="7">
+              <div class="story-year-wrap"><div class="story-year">NOW</div></div>
+              <div class="story-card">
+                <span class="story-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20"/><path d="M4.93 4.93 19.07 19.07"/><path d="M2 12h20"/><path d="M4.93 19.07 19.07 4.93"/><circle cx="12" cy="12" r="4"/></svg></span>
+                <p class="story-eyebrow font-display text-uppercase text-sm mb-2">Mile VII - Now</p>
+                <h3 class="font-display display-6 fw-bold mb-3">Long-term Clients</h3>
+                <p class="text-white-50 fs-5 mb-3">The business continues serving churches, priests, and private clients across provinces, including ongoing sacred glass projects.</p>
+                <p class="story-client mb-0">Symbol: Light wheel representing sacred illumination and continuity.</p>
+                <div class="story-tags"><span>Repeat clients</span><span>Church glass</span><span>Ongoing work</span></div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -2658,21 +2871,19 @@
     <section id="about" class="py-5">
       <div class="container py-5">
         <div class="reflection about-image-stage reveal">
+          <div class="about-image-heading">
+            <p class="font-display text-warning tracking-[.22em] text-uppercase text-sm mb-3">About the craft</p>
+            <h2 class="font-display display-5 fw-bold mb-0">Stained glass, aluminum fabrication, and iron works shaped by experience.</h2>
+          </div>
           <div class="about-image-content">
-            <div class="about-content-grid">
-              <div>
-                <p class="font-display text-warning tracking-[.22em] text-uppercase text-sm mb-3">About the craft</p>
-                <h2 class="font-display display-5 fw-bold mb-4">Stained glass, aluminum fabrication, and iron works shaped by experience.</h2>
-                <div class="roman-divider font-display mb-0">VITRVM SACRVM</div>
-              </div>
-              <div class="about-copy">
-                <p class="fs-5 mb-4">Joseph Stainedglass Aluminum Fabrication and Iron Works creates customized stained glass designs and complete glass-and-metal solutions. The business is trusted for church and religious projects, cut glass work, iron framing, gate grilles, and window grilles.</p>
-                <p class="mb-0">From consultation to installation, projects are personally supervised to maintain quality, safe handling, and careful finishing. The team is willing to travel to distant provinces to deliver and install stained glass works properly.</p>
-                <div class="about-craft-points">
-                  <span>Church glass</span>
-                  <span>Metal framing</span>
-                  <span>Province installs</span>
-                </div>
+            <div class="about-copy">
+              <div class="roman-divider font-display mb-4">VITRVM SACRVM</div>
+              <p class="fs-5 mb-4">Joseph Stainedglass Aluminum Fabrication and Iron Works creates customized stained glass designs and complete glass-and-metal solutions. The business is trusted for church and religious projects, cut glass work, iron framing, gate grilles, and window grilles.</p>
+              <p class="mb-0">From consultation to installation, projects are personally supervised to maintain quality, safe handling, and careful finishing. The team is willing to travel to distant provinces to deliver and install stained glass works properly.</p>
+              <div class="about-craft-points">
+                <span>Church glass</span>
+                <span>Metal framing</span>
+                <span>Province installs</span>
               </div>
             </div>
           </div>
@@ -3000,6 +3211,7 @@
     const imageLightbox = document.getElementById('imageLightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.getElementById('lightboxClose');
+    const storyMiles = document.querySelectorAll('.story-mile');
     const navSections = [...navLinks]
       .map((link) => {
         const href = link.getAttribute('href');
@@ -3055,6 +3267,10 @@
       if (window.matchMedia('(min-width: 992px)').matches) {
         setMenuOpen(false);
       }
+      const activeStoryMile = document.querySelector('.story-mile.active') || storyMiles[0];
+      if (activeStoryMile) {
+        setActiveStoryMile(activeStoryMile);
+      }
     });
 
     const updateActiveNav = () => {
@@ -3078,6 +3294,23 @@
         }
       });
     }, { threshold: 0.16 });
+
+    const setActiveStoryMile = (activeMile) => {
+      storyMiles.forEach((mile) => mile.classList.toggle('active', mile === activeMile));
+    };
+
+    const storyObserver = new IntersectionObserver((entries) => {
+      const visibleEntries = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (visibleEntries[0]) {
+        setActiveStoryMile(visibleEntries[0].target);
+      }
+    }, {
+      rootMargin: '-34% 0px -34% 0px',
+      threshold: [0.18, 0.4, 0.68]
+    });
 
     document.querySelectorAll('.faq-item .faq-button').forEach((button) => {
       button.addEventListener('click', () => {
@@ -3138,6 +3371,10 @@
     });
 
     document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+    storyMiles.forEach((mile) => storyObserver.observe(mile));
+    if (storyMiles[0]) {
+      setActiveStoryMile(storyMiles[0]);
+    }
     window.addEventListener('scroll', updateNav, { passive: true });
     window.addEventListener('scroll', updateActiveNav, { passive: true });
     updateNav();
