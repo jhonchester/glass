@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Joseph Stainedglass window mark">
+  <defs>
+    <linearGradient id="glass" x1="12" y1="8" x2="52" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe8a8"/>
+      <stop offset=".34" stop-color="#60b6d8"/>
+      <stop offset=".68" stop-color="#b83c4d"/>
+      <stop offset="1" stop-color="#c79647"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="10" y1="6" x2="54" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff3cd"/>
+      <stop offset=".55" stop-color="#c79647"/>
+      <stop offset="1" stop-color="#6f471d"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#15100b"/>
+  <path d="M14 56V28c0-10.49 8.51-19 19-19s19 8.51 19 19v28H14Z" fill="url(#metal)"/>
+  <path d="M19 52V29c0-7.73 6.27-14 14-14s14 6.27 14 14v23H19Z" fill="#24180d"/>
+  <path d="M22 30c0-6.08 4.92-11 11-11s11 4.92 11 11v19H22V30Z" fill="url(#glass)"/>
+  <path d="M33 19v30M22 35h22M25 25l16 24M41 25 25 49" fill="none" stroke="#fff4c7" stroke-width="2" stroke-linecap="round" opacity=".78"/>
+  <path d="M19 52h28" fill="none" stroke="#15100b" stroke-width="4" stroke-linecap="round"/>
+  <text x="33" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="700" fill="#fff8db">JS</text>
+</svg>

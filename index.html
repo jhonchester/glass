@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Joseph Stainedglass Aluminum Fabrication and Iron Works creates custom stained glass, iron framing, gate grilles, window grilles, and cut glass installation services.">
   <title>Joseph Stainedglass | Aluminum Fabrication and Iron Works</title>
+  <link rel="icon" type="image/svg+xml" href="stained/favicon.svg">
 
   <!-- Tailwind CSS + Bootstrap 5 -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -56,7 +57,7 @@
       overflow-x: hidden;
     }
 
-    body::before {
+    /* body::before {
       content: "BASILICA  |  FRESCO  |  MOSAIC  |  VITRVM SACRVM";
       position: fixed;
       inset: auto 0 0 0;
@@ -70,7 +71,7 @@
       text-align: center;
       pointer-events: none;
       backdrop-filter: blur(12px);
-    }
+    } */
 
     .font-display {
       font-family: 'Cinzel', serif;
@@ -960,24 +961,200 @@
       flex: 0 0 auto;
     }
 
-    .success-card {
+    .sacred-image-section {
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(135deg, rgba(255, 252, 243, .93), rgba(232, 218, 190, .78)),
-        radial-gradient(circle at 100% 0, rgba(184, 36, 53, .12), transparent 12rem);
-      border: 1px solid rgba(139, 100, 46, .2);
-      box-shadow: 0 22px 64px rgba(35, 28, 20, .1);
+        linear-gradient(110deg, rgba(12, 8, 5, .88), rgba(56, 28, 23, .58) 48%, rgba(12, 8, 5, .82)),
+        url('https://unsplash.com/photos/RCQCHONXIoo/download?force=true&w=1800');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      isolation: isolate;
+    }
+
+    .sacred-image-section > .container,
+    .timeline-section > .container,
+    .success-section > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .sacred-image-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(255, 232, 168, .08) 0 1px, transparent 1px 4.5rem),
+        repeating-linear-gradient(0deg, rgba(255, 232, 168, .06) 0 1px, transparent 1px 4.5rem),
+        radial-gradient(circle at 18% 20%, rgba(184, 36, 53, .24), transparent 20rem),
+        radial-gradient(circle at 82% 15%, rgba(42, 112, 153, .2), transparent 18rem),
+        linear-gradient(180deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .34));
+      z-index: 0;
+    }
+
+    .sacred-image-section::after {
+      content: "SANCTVS  VITRVM";
+      position: absolute;
+      right: clamp(-1rem, 4vw, 4rem);
+      bottom: 1.5rem;
+      color: rgba(255, 244, 199, .12);
+      font: 700 clamp(3.5rem, 11vw, 9rem)/.8 'Cinzel', serif;
+      letter-spacing: .08em;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sacred-image-section .text-secondary {
+      color: rgba(255, 255, 255, .78) !important;
+    }
+
+    .sacred-image-section h2 {
+      color: #fff8e8;
+      text-shadow: 0 16px 46px rgba(0, 0, 0, .36);
+    }
+
+    .sacred-image-section .trust-card {
+      color: #fff8e8;
+      background:
+        linear-gradient(135deg, rgba(35, 24, 15, .9), rgba(86, 40, 33, .72)),
+        radial-gradient(circle at 0 0, rgba(78, 154, 186, .2), transparent 12rem),
+        radial-gradient(circle at 100% 0, rgba(248, 216, 148, .18), transparent 12rem);
+      border-color: rgba(255, 232, 168, .28);
+      box-shadow: 0 24px 72px rgba(0, 0, 0, .28);
+      backdrop-filter: blur(10px);
+    }
+
+    .sacred-image-section .trust-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #b82435, #f8d894, #4e9aba);
+    }
+
+    .sacred-image-section .trust-card::before {
+      color: rgba(255, 244, 199, .12);
+    }
+
+    .sacred-image-section .trust-card .text-secondary {
+      color: rgba(255, 255, 255, .74) !important;
+    }
+
+    .timeline-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(13, 9, 6, .9), rgba(77, 33, 35, .62), rgba(13, 9, 6, .86)),
+        url('https://unsplash.com/photos/Wb0YJsKFAw4/download?force=true&w=1800');
+      background-size: cover;
+      background-position: center;
+      isolation: isolate;
+    }
+
+    .timeline-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(45deg, rgba(255, 232, 168, .07) 0 .08rem, transparent .08rem 1.35rem),
+        radial-gradient(circle at 20% 20%, rgba(248, 216, 148, .2), transparent 18rem),
+        radial-gradient(circle at 78% 16%, rgba(82, 150, 184, .2), transparent 17rem),
+        linear-gradient(180deg, rgba(13, 9, 6, .26), rgba(13, 9, 6, .58));
+      z-index: 0;
+    }
+
+    .timeline-section .section-shell {
+      background:
+        linear-gradient(135deg, rgba(255, 252, 243, .94), rgba(241, 228, 202, .83)),
+        radial-gradient(circle at 92% 10%, rgba(184, 36, 53, .18), transparent 18rem);
+      border-color: rgba(255, 232, 168, .38);
+    }
+
+    .timeline-section h2 {
+      color: #fff8e8;
+      text-shadow: 0 16px 46px rgba(0, 0, 0, .38);
+    }
+
+    .timeline-section > .container > .text-center .text-secondary {
+      color: rgba(255, 255, 255, .76) !important;
+    }
+
+    .success-section {
+      position: relative;
+      overflow: hidden;
+      color: #fff8e8;
+      background:
+        linear-gradient(120deg, rgba(10, 7, 5, .92), rgba(80, 31, 36, .6) 48%, rgba(10, 7, 5, .9)),
+        url('https://unsplash.com/photos/z2aiZnK_6zg/download?force=true&w=1800');
+      background-size: cover;
+      background-position: center;
+      isolation: isolate;
+    }
+
+    .success-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(255, 232, 168, .07) 0 1px, transparent 1px 5rem),
+        radial-gradient(circle at 30% 10%, rgba(248, 216, 148, .2), transparent 18rem),
+        radial-gradient(circle at 78% 28%, rgba(48, 132, 163, .18), transparent 18rem),
+        linear-gradient(180deg, rgba(0, 0, 0, .12), rgba(0, 0, 0, .45));
+      z-index: 0;
+    }
+
+    .success-section .text-secondary {
+      color: rgba(255, 255, 255, .74) !important;
+    }
+
+    .success-card {
+      position: relative;
+      overflow: hidden;
+      color: #fff8e8;
+      background:
+        linear-gradient(145deg, rgba(33, 22, 15, .92), rgba(73, 32, 34, .78)),
+        radial-gradient(circle at 0 0, rgba(72, 153, 187, .28), transparent 10rem),
+        radial-gradient(circle at 100% 0, rgba(248, 216, 148, .2), transparent 12rem);
+      border: 1px solid rgba(255, 232, 168, .3);
+      box-shadow: 0 28px 78px rgba(0, 0, 0, .34);
+      backdrop-filter: blur(12px);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .success-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 232, 168, .52);
+      box-shadow: 0 34px 90px rgba(0, 0, 0, .44);
+    }
+
+    .success-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .success-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: .42rem;
+      background: linear-gradient(90deg, #b82435, #f8d894 45%, #4e9aba);
+      z-index: 0;
     }
 
     .success-card::after {
       content: "";
       position: absolute;
       inset: auto -2rem -2rem auto;
-      width: 8rem;
-      height: 8rem;
-      background: radial-gradient(circle, rgba(199, 150, 71, .24), transparent 65%);
+      width: 10rem;
+      height: 10rem;
+      background:
+        conic-gradient(from 45deg, rgba(184, 36, 53, .18), rgba(248, 216, 148, .28), rgba(42, 112, 153, .16), rgba(184, 36, 53, .18));
+      border-radius: 999px;
       pointer-events: none;
+      z-index: 0;
     }
 
     .success-badge {
@@ -990,6 +1167,38 @@
       border-radius: 999px;
       font: 700 .9rem/1 'Cinzel', serif;
       box-shadow: 0 14px 34px rgba(139, 100, 46, .22);
+    }
+
+    .success-meta {
+      display: block;
+      color: #f8d894;
+      font-family: 'Cinzel', serif;
+      font-size: .68rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: .45rem;
+    }
+
+    .success-card h3 {
+      color: #fff8e8;
+    }
+
+    .success-card .text-secondary {
+      color: rgba(255, 255, 255, .76) !important;
+    }
+
+    .success-location {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      margin-top: 1rem;
+      padding: .38rem .62rem;
+      color: #fff8e8;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 232, 168, .24);
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 800;
     }
 
     .nav-link {
@@ -1721,7 +1930,7 @@
           <a class="nav-link" href="#faq">FAQ</a>
           <a class="nav-link" href="#contact">Contact</a>
         </div>
-        <a href="#contact" class="btn rounded-pill px-3 py-2 fw-semibold text-dark bg-warning border-0 shadow-glow flex-shrink-0">Get Quote</a>
+        <a href="#contact" class="btn rounded-pill px-3 py-2 fw-semibold text-dark bg-warning border-0 shadow-glow flex-shrink-0">Contact Us</a>
       </div>
     </div>
   </nav>
@@ -1827,7 +2036,7 @@
     </section>
 
     <!-- Offer and Trust Section -->
-    <section id="strengths" class="py-5 bg-white bg-opacity-75">
+    <section id="strengths" class="sacred-image-section py-5">
       <div class="container py-5">
         <div class="text-center mx-auto mb-5 reveal" style="max-width: 820px;">
           <p class="font-display text-bronze tracking-[.22em] text-uppercase text-sm mb-3">Offer and trust</p>
@@ -1907,7 +2116,7 @@
     </section>
 
     <!-- Roman Road Timeline -->
-    <section id="timeline" class="py-5 bg-[#f4efe4]">
+    <section id="timeline" class="timeline-section py-5">
       <div class="container py-5">
         <div class="text-center mx-auto mb-5 reveal" style="max-width: 780px;">
           <p class="font-display text-bronze tracking-[.22em] text-uppercase text-sm mb-3">Church client timeline</p>
@@ -2392,40 +2601,66 @@
     </section>
 
     <!-- Success Stories -->
-    <section id="success" class="py-5">
+    <section id="success" class="success-section py-5">
       <div class="container py-5">
         <div class="text-center mx-auto mb-5 reveal" style="max-width: 760px;">
           <p class="font-display text-bronze tracking-[.22em] text-uppercase text-sm mb-3">Success stories</p>
           <h2 class="font-display display-5 fw-bold mb-3">Projects remembered for safe delivery, sacred detail, and owner-supervised craft.</h2>
-          <p class="text-secondary fs-5 mb-0">These story cards summarize the strengths behind Joseph Stainedglass Aluminum Fabrication and Iron Works.</p>
+          <p class="text-secondary fs-5 mb-0">Actual church relationships and parish projects carried with careful glass handling, sacred detailing, and provincial installation service.</p>
         </div>
         <div class="row g-4">
-          <div class="col-md-6 col-xl-3 reveal">
+          <div class="col-md-6 col-xl-4 reveal">
             <article class="success-card rounded-4 p-4 h-100">
-              <div class="success-badge mb-4">I</div>
-              <h3 class="h5 fw-bold">Trusted by Churches</h3>
-              <p class="text-secondary mb-0">Religious institutions and priests trust the business for sacred stained glass pieces that require care, respect, and accurate installation.</p>
+              <div class="success-badge mb-4">01</div>
+              <span class="success-meta">Cathedral commission</span>
+              <h3 class="h5 fw-bold">Bishop Eduardo Huanich</h3>
+              <p class="text-secondary mb-0">St. Joseph Taytay Palawan Cathedral is remembered as a major sacred-glass relationship, carrying the precision and respect expected for cathedral work.</p>
+              <span class="success-location">Taytay, Palawan</span>
             </article>
           </div>
-          <div class="col-md-6 col-xl-3 reveal">
+          <div class="col-md-6 col-xl-4 reveal">
             <article class="success-card rounded-4 p-4 h-100">
-              <div class="success-badge mb-4">II</div>
-              <h3 class="h5 fw-bold">Owner-Supervised Quality</h3>
-              <p class="text-secondary mb-0">Delfa A. Pe&ntilde;a personally oversees design, fabrication, delivery, and installation so each project meets a consistent standard.</p>
+              <div class="success-badge mb-4">02</div>
+              <span class="success-meta">Long-term parish trust</span>
+              <h3 class="h5 fw-bold">Rev. Fr. Roel Mendoza</h3>
+              <p class="text-secondary mb-0">San Isidro Labrador Parish reflects steady church trust, with stained-glass service shaped through safe delivery and owner-supervised finishing.</p>
+              <span class="success-location">Masbate</span>
             </article>
           </div>
-          <div class="col-md-6 col-xl-3 reveal">
+          <div class="col-md-6 col-xl-4 reveal">
             <article class="success-card rounded-4 p-4 h-100">
-              <div class="success-badge mb-4">III</div>
-              <h3 class="h5 fw-bold">Long-Distance Service</h3>
-              <p class="text-secondary mb-0">The team is willing to travel to distant provinces to safely deliver and install stained glass works where clients need them.</p>
+              <div class="success-badge mb-4">03</div>
+              <span class="success-meta">Balod sacred glass</span>
+              <h3 class="h5 fw-bold">Rev. Fr. Bibol Bidibel</h3>
+              <p class="text-secondary mb-0">Balod Masbate projects show repeat sacred-glass work for a parish setting, balancing stained-glass color, framing, and careful installation.</p>
+              <span class="success-location">Balod, Masbate</span>
             </article>
           </div>
-          <div class="col-md-6 col-xl-3 reveal">
+          <div class="col-md-6 col-xl-4 reveal">
             <article class="success-card rounded-4 p-4 h-100">
-              <div class="success-badge mb-4">IV</div>
-              <h3 class="h5 fw-bold">Glass and Iron Works</h3>
-              <p class="text-secondary mb-0">Projects can combine stained glass, cut glass, iron framing, gate grilles, and window grilles into one coordinated service.</p>
+              <div class="success-badge mb-4">04</div>
+              <span class="success-meta">Mindanao installation</span>
+              <h3 class="h5 fw-bold">Rev. Fr. Jude Duncombe</h3>
+              <p class="text-secondary mb-0">Padre Pio Parish in Cabatangan marks a distant-province commission where transport, handling, and installation mattered as much as the glass itself.</p>
+              <span class="success-location">Cabatangan, Zamboanga</span>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4 reveal">
+            <article class="success-card rounded-4 p-4 h-100">
+              <div class="success-badge mb-4">05</div>
+              <span class="success-meta">Immaculate Conception</span>
+              <h3 class="h5 fw-bold">Rev. Fr. Bibol Bidibil</h3>
+              <p class="text-secondary mb-0">Immaculate Conception in Balod Masbate carries the section's sacred motif through glass panels, color planning, and metal framing support.</p>
+              <span class="success-location">Balod, Masbate</span>
+            </article>
+          </div>
+          <div class="col-md-6 col-xl-4 reveal">
+            <article class="success-card rounded-4 p-4 h-100">
+              <div class="success-badge mb-4">06</div>
+              <span class="success-meta">Parish expansion</span>
+              <h3 class="h5 fw-bold">Rev. Fr. Garry Bacolod</h3>
+              <p class="text-secondary mb-0">St. Bernard Parish represents continuing Masbate work, joining stained glass, cut glass, and iron support into one coordinated church service.</p>
+              <span class="success-location">Mandaon, Masbate</span>
             </article>
           </div>
         </div>
